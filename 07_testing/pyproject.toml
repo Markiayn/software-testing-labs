@@ -1,0 +1,45 @@
+[project]
+name = "software-testing-lab07"
+version = "0.1.0"
+description = "Лабораторна робота №07: тестування (unittest, pytest, coverage, інтеграційні тести)"
+authors = [
+    {name = "Markiyan Kobiletskiy",email = "markiyankobiletskiy2@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.14,<4.0"
+dependencies = ["flask (>=3.1.3,<4.0.0)"]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.1,<10.0.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)",
+    "coverage (>=7.16.2,<8.0.0)"
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "01_general_and_unittest"
+]
+python_files = ["test_*.py", "test.py"]
+markers = [
+    "unit: швидкі юніт-тести",
+    "integration: інтеграційні тести"
+]
+
+[tool.coverage.run]
+branch = true
+source = ["01_general_and_unittest"]
+
+[tool.coverage.report]
+omit = [
+    "*/test_*.py",
+    "*/test.py",
+    "*/__init__.py"
+]
