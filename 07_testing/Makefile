@@ -3,11 +3,14 @@
 install:
 	poetry install
 
+# Кожна частина запускається окремим процесом pytest: в обох частинах є модуль app.py,
+# і в спільному процесі тести другої частини імпортували б Figure з першої.
 test:
-	poetry run pytest -v
+	poetry run pytest -v 01_general_and_unittest
+	poetry run pytest -v 02_pytest
 
 unit:
-	poetry run pytest -m unit -v
+	poetry run pytest -m unit -v 02_pytest
 
 integration:
 	poetry run pytest -m integration -v

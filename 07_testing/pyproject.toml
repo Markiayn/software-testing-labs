@@ -28,6 +28,8 @@ testpaths = [
     "01_general_and_unittest"
 ]
 python_files = ["test_*.py", "test.py"]
+# показувати кирилицю в назвах параметризованих тестів замість \u-послідовностей
+disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
 markers = [
     "unit: швидкі юніт-тести",
     "integration: інтеграційні тести"
